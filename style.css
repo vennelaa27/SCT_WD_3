@@ -1,0 +1,625 @@
+/* ==========================================
+   Google Font & Reset
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#08111f;
+    color:#fff;
+    overflow-x:hidden;
+    transition:.4s;
+}
+
+/* ==========================================
+   Navbar
+========================================== */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(18px);
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+}
+
+.logo h2{
+    color:#38bdf8;
+    font-size:28px;
+}
+
+#themeBtn{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#38bdf8;
+    color:#fff;
+    cursor:pointer;
+    font-size:18px;
+    transition:.35s;
+}
+
+#themeBtn:hover{
+    transform:rotate(180deg);
+}
+
+/* ==========================================
+   Hero Section
+========================================== */
+
+.hero{
+    height:45vh;
+    background:
+        linear-gradient(rgba(0,0,0,.55),
+        rgba(0,0,0,.65)),
+        url("images/background.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.hero-content{
+    text-align:center;
+    z-index:2;
+}
+
+.hero-content h1{
+    font-size:58px;
+    margin-bottom:15px;
+    animation:fadeDown 1s ease;
+}
+
+.hero-content p{
+    font-size:20px;
+    color:#ddd;
+    animation:fadeUp 1.2s ease;
+}
+
+/* ==========================================
+   Main Container
+========================================== */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:70px 0;
+}
+
+/* ==========================================
+   Game Mode Buttons
+========================================== */
+
+.mode-select{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+.mode-select button{
+    padding:14px 28px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    background:#1e293b;
+    color:#fff;
+    transition:.35s;
+}
+
+.mode-select button:hover{
+    background:#38bdf8;
+}
+
+.mode-select .active{
+    background:#38bdf8;
+}
+
+/* ==========================================
+   Difficulty
+========================================== */
+
+.difficulty{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.difficulty label{
+    font-size:18px;
+}
+
+.difficulty select{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+}
+
+/* ==========================================
+   Status
+========================================== */
+
+#status{
+    text-align:center;
+    margin-bottom:30px;
+    color:#38bdf8;
+    font-size:30px;
+    font-weight:600;
+}
+
+/* ==========================================
+   Animations
+========================================== */
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+/* ==========================================
+   Tic Tac Toe Board
+========================================== */
+
+.board{
+    width:420px;
+    max-width:95%;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.cell{
+    width:125px;
+    height:125px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:2px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:58px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+    user-select:none;
+}
+
+.cell:hover{
+    transform:scale(1.05);
+    background:rgba(56,189,248,.18);
+    box-shadow:0 12px 25px rgba(56,189,248,.25);
+}
+
+.cell.x{
+    color:#38bdf8;
+}
+
+.cell.o{
+    color:#f97316;
+}
+
+.cell.win{
+    background:#16a34a !important;
+    color:#fff !important;
+    animation:pulse .8s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+/* ==========================================
+   Controls
+========================================== */
+
+.controls{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.controls button{
+
+    padding:14px 28px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    background:#38bdf8;
+    color:#fff;
+    transition:.3s;
+
+}
+
+.controls button:hover{
+
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(56,189,248,.35);
+
+}
+
+#restartBtn{
+
+    background:#f59e0b;
+
+}
+
+#newGameBtn{
+
+    background:#22c55e;
+
+}
+
+/* ==========================================
+   Scoreboard
+========================================== */
+
+.scoreboard{
+
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+
+}
+
+.score-card{
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    transition:.35s;
+
+}
+
+.score-card:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(56,189,248,.25);
+
+}
+
+.score-card h3{
+
+    margin-bottom:12px;
+    font-size:22px;
+
+}
+
+.score-card p{
+
+    font-size:38px;
+    font-weight:700;
+    color:#38bdf8;
+
+}
+
+/* ==========================================
+   Glass Effect
+========================================== */
+
+.mode-select button,
+.score-card,
+.cell{
+
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+}
+/* ==========================================
+   Footer
+========================================== */
+
+footer{
+
+    margin-top:60px;
+    padding:25px;
+    text-align:center;
+    background:#050b14;
+    color:#bbb;
+    font-size:15px;
+
+}
+
+/* ==========================================
+   Light Theme
+========================================== */
+
+body.light{
+
+    background:#f5f7fb;
+    color:#111;
+
+}
+
+body.light nav{
+
+    background:rgba(255,255,255,.95);
+
+}
+
+body.light .cell{
+
+    background:#ffffff;
+    color:#111;
+    border:2px solid #ddd;
+
+}
+
+body.light .score-card{
+
+    background:#ffffff;
+    color:#111;
+
+}
+
+body.light .mode-select button{
+
+    background:#e5e7eb;
+    color:#111;
+
+}
+
+body.light .mode-select .active{
+
+    background:#38bdf8;
+    color:#fff;
+
+}
+
+body.light footer{
+
+    background:#dfe6ee;
+    color:#222;
+
+}
+
+body.light #status{
+
+    color:#2563eb;
+
+}
+
+/* ==========================================
+   Floating Animation
+========================================== */
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+.board{
+
+    animation:float 5s ease-in-out infinite;
+
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:768px){
+
+nav{
+
+    padding:15px 5%;
+
+}
+
+.logo h2{
+
+    font-size:22px;
+
+}
+
+.hero{
+
+    height:35vh;
+
+}
+
+.hero-content h1{
+
+    font-size:34px;
+
+}
+
+.hero-content p{
+
+    font-size:16px;
+
+}
+
+.board{
+
+    width:330px;
+
+    gap:10px;
+
+}
+
+.cell{
+
+    width:100px;
+
+    height:100px;
+
+    font-size:48px;
+
+}
+
+.controls{
+
+    flex-direction:column;
+
+}
+
+.controls button{
+
+    width:100%;
+
+}
+
+.scoreboard{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.hero-content h1{
+
+    font-size:28px;
+
+}
+
+.board{
+
+    width:270px;
+
+}
+
+.cell{
+
+    width:80px;
+
+    height:80px;
+
+    font-size:38px;
+
+}
+
+#status{
+
+    font-size:22px;
+
+}
+
+}
+
+/* ==========================================
+   Scrollbar
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#08111f;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#38bdf8;
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#2563eb;
+
+}
